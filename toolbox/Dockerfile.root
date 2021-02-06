@@ -1,10 +1,11 @@
-FROM archlinux:base-devel
+FROM archlinux/base
 
 RUN mkdir -p /etc/pacman.d/hooks \
 	&& ln -s /dev/null /etc/pacman.d/hooks/30-systemd-tmpfiles.hook
 
 RUN pacman --noconfirm -Syu \
 	&& pacman --needed --noconfirm -S \
+		base-devel \
 		arp-scan \
 		python \
 		parted \
